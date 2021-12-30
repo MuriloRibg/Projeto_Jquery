@@ -34,9 +34,9 @@ function tamanhoFrase(){
 
 function verificarFrase(){
     campo.on("input", () => {
-        let frase = $(".frase").text();
-        let digitado = campo.val()
-        if(frase.startsWith(digitado)){ //começa com o valor digitado ou não
+        let digitacao = campo.val();
+        let comparavel = frase.substr(0, digitacao.length) // subString
+        if(digitacao == comparavel){
             campo.addClass("campo-correto");
             campo.removeClass("campo-errado");
             // campo.css("font-size", "2rem") // css direto do jquery
@@ -86,3 +86,18 @@ function reiniciar(){
 }
 
 
+// function verificarFrase(){
+//     campo.on("input", () => {
+//         let digitacao = campo.val();
+//         let comparavel = frase.substr(0, digitacao.length) // subString
+//         if(digitacao == comparavel){
+//             campo.addClass("campo-correto");
+//             campo.removeClass("campo-errado");
+//             // campo.css("font-size", "2rem") // css direto do jquery
+//         }
+//         else{
+//             campo.addClass("campo-errado");
+//             campo.removeClass("campo-correto");
+//         }
+//     })
+// }
