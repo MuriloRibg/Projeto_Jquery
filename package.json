@@ -1,0 +1,14 @@
+{
+  "name": "jquery",
+  "version": "1.0.0",
+  "description": "function verificarFrase(){\r     campo.on(\"input\", () => {\r         let digitacao = campo.val();\r         let comparavel = frase.substr(0, digitacao.length) // subString\r         if(digitacao == comparavel){\r             campo.addClass(\"campo-correto\");\r             campo.removeClass(\"campo-errado\");\r             // campo.css(\"font-size\", \"2rem\") // css direto do jquery\r         }\r         else{\r             campo.addClass(\"campo-errado\");\r             campo.removeClass(\"campo-correto\");\r         }\r     })\r }",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^17.2.0"
+  }
+}
