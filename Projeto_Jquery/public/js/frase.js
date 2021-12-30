@@ -1,13 +1,14 @@
 $(() => { //assim que ele carregar
     atualizarTabela();
+    buscarFrase();
 });
 
-$("#botao-sync").click(() => {
+$("#botao-sync").click((event) => {
     event.preventDefault();
     pegarPlacar()
 })
 
-$("#botao-frase").click(() => {
+$("#botao-frase").click((event) => {
     event.preventDefault();
     fraseAleatoria()
 })
@@ -69,27 +70,20 @@ function trocaFraseAle(data) {
 }
 
 function buscarFrase() {
-    $("#spinner").toggle();
-    var fraseId = $("#frase-id").val();
+    $("#botao-frase-id").click((event) => {
+        21
+        let num = $("#frase-id").val()
+        let dados = {
+            id: num
+        }
 
-    //criacao do objeto JS que guarda a id
-    var dados = {id : fraseId}; 
-
-    //passando objecto como segundo parametro
-    $.get("http://localhost:3000/frases", dados, trocaFrase)
-    .fail(function(){
-        $("#erro").toggle();
-        setTimeout(function(){
-            $("#erro").toggle();
-    },2000);
+        $.get("http://localhost:3000/frases/", dados, trocaFrase).fail(() => { //tem q enviar um objeto
+            console.error()
+        }).always(() => {
+            notificacaoCerto("Frase: " + num);
+        })
     })
-    .always(function(){
-        notificacaoCerto("Frase: " + fraseId);
-        $("#spinner").toggle();
-    });
 }
-
-
 
 function trocaFrase(data) {
     let frase = $(".frase");

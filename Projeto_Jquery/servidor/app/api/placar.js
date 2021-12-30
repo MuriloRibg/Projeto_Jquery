@@ -1,6 +1,6 @@
-const db = require('../../config/database')
+var db = require('../../config/database');
 
-const api = {};
+var api = {};
 
 
 api.lista = function(req, res) {
